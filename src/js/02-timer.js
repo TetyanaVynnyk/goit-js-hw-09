@@ -6,7 +6,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import 'notiflix/dist/notiflix-3.2.5.min.css';
 
 const startBtn = document.querySelector('[data-start]');
-let futureDate; 
+let futureDate;
 let selectedDate;
 const options = {
   enableTime: true,
@@ -32,12 +32,12 @@ const timer = {
     const startTime = selectedDate;
     const timerID = setInterval(() => {
       const currentTime = Date.now();
-      const deltaTime = selectedDate-currentTime;
+      const deltaTime = selectedDate - currentTime;
       const { days, hours, minutes, seconds } = convertMs(deltaTime);
-      if(deltaTime < 1000){
+      if (deltaTime < 1000) {
         clearInterval(timerID);
         startBtn.removeAttribute('disabled');
-      };
+      }
       console.log(deltaTime);
       updateClockFace({ days, hours, minutes, seconds });
     }, 1000);
